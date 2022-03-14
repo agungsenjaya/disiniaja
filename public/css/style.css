@@ -1,0 +1,42 @@
+.nav-admin {
+    line-height: 2;
+}
+.nav-admin > a {
+    background-color: transparent;
+    color: #fff;
+    /* font-weight: 600; */
+}
+.nav-admin > a:hover {
+    background-color: transparent;
+    color: #fff;
+    opacity: .5;
+}
+.nav-admin > a:focus {
+    color: #fff;
+    background-color: transparent;
+}
+.bg-admin {
+    background-color: #ecf1fa;
+}
+.sub-nav {
+    text-transform: uppercase;
+    opacity: .5;
+    font-weight: 700;
+    letter-spacing:2px;
+    font-size: 10px;
+}
+.line-2 {
+    line-height: 2;
+}
+.line-3 {
+    line-height: 3;
+}
+.border-transparent {
+    border-color: transparent;
+}
+.bg-primary-2 {
+    background-color: #0242a1;
+}
+.form-control,.form-select,.btn,.card {
+    border-radius: 0;
+}
