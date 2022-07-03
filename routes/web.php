@@ -39,6 +39,7 @@ Route::GROUP(['prefix' => 'owner',  'middleware' => ['role:owner']], function(){
     Route::GET('frame/create','OwnerController@frame_create')->name('owner.frame_create');
     Route::POST('frame/store','OwnerController@frame_store')->name('owner.frame_store');
     Route::GET('frame/view','OwnerController@frame_view')->name('owner.frame_view');
+    Route::GET('frame/edit/{id}','OwnerController@frame_edit')->name('owner.frame_edit');
     
     Route::GET('cetak','OwnerController@cetak')->name('owner.cetak');
     Route::GET('cetak/create','OwnerController@cetak_create')->name('owner.cetak_create');

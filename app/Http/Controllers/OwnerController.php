@@ -89,7 +89,6 @@ class OwnerController extends Controller
     {
         $valid = Validator::make($request->all(), [
             'name' => 'unique:frames',
-            'qty' => 'required',
             'price' => 'required',
             'price_m' => 'required',
         ]);
@@ -100,10 +99,37 @@ class OwnerController extends Controller
         $data = Frame::create([
             'user_id' => Auth::user()->id,
             'name' => strtolower($request->name),
-            'qty' => ($request->qty) ? $request->qty : NULL,
             'price' => ($request->price) ? $request->price : NULL,
             'price_m' => ($request->price_m) ? $request->price_m : NULL,
         ]);
+        if ($data) {
+            Session::flash('success','Data berhasil input, terima kasih.');
+            return redirect()->route('owner.frame');
+        }
+    }
+
+    public function frame_edit($id)
+    {
+        $data = Frame::find($id);
+        return view('owner.frame_edit',compact('data'));
+    }
+
+    public function frame_update(Request $request, $id)
+    {
+        $data = Frame::find($id);
+        $valid = Validator::make($request->all(), [
+            'qty' => 'required',
+            'price' => 'required',
+            'price_m' => 'required',
+        ]);
+        if ($valid->fails()) {
+            Session::flash('failed','Data gagal input, coba periksa kembali.');
+            return redirect()->back()->withErrors($valid)->withInput();
+        }
+        $data->qty = $request->qty;
+        $data->price = $request->price;
+        $data->price_m = $request->price_m;
+        $data->save();
         if ($data) {
             Session::flash('success','Data berhasil input, terima kasih.');
             return redirect()->route('owner.frame');
@@ -207,4 +233,5 @@ class OwnerController extends Controller
             return redirect()->back();
         }
     }
+
 }

@@ -29,10 +29,6 @@
 <option value="24rp">24rp</option>
     </select>
   </div>
-  <div class="col">
-    <label class="form-label">Stock Frame</label>
-    <input type="number" class="form-control" name="qty" required>
-  </div>
   </div>
   <div class="mb-3 row">
   <div class="col">
