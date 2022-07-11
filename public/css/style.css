@@ -75,3 +75,7 @@
 .form-control,.form-select,.btn,.card {
     border-radius: 0;
 }
+
+table {
+  font-family: Roboto, sans-serif;
+}

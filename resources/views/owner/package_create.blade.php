@@ -7,7 +7,7 @@
   </ol>
 </nav>
 <form method="POST" action="{{ route('owner.paket_store') }}">
-      @csrf
+  @csrf
 <section class="card mb-3">
     <div class="card-body">
   <div class="mb-3 row">

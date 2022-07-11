@@ -71,7 +71,7 @@ class OwnerController extends Controller
         ]);
         if ($data) {
             Session::flash('success','Data berhasil input, terima kasih.');
-            return redirect()->route('owner.promo');
+            return redirect()->back();
         }
     }
 
@@ -217,7 +217,7 @@ class OwnerController extends Controller
     public function kategori_store(Request $request)
     {
         $valid = Validator::make($request->all(), [
-            'name' => 'unique:order_kats',
+            'name' => 'unique:package_kats',
         ]);
         if ($valid->fails()) {
             Session::flash('failed','Data gagal input, coba periksa kembali.');
@@ -230,8 +230,33 @@ class OwnerController extends Controller
         ]);
         if ($data) {
             Session::flash('success','Kategori berhasil ditambahkan, terima kasih.');
-            return redirect()->back();
+            return redirect()->route('owner.kategori');
         }
+    }
+    
+    public function kategori_update(Request $request, $id)
+    {
+        $data = PackageKat::find($id);
+        $valid = Validator::make($request->all(), [
+            'name' => 'required',
+        ]);
+        if ($valid->fails()) {
+            Session::flash('failed','Data gagal input, coba periksa kembali.');
+            return redirect()->back()->withErrors($valid)->withInput();
+        }
+        $data->name = $request->name;
+        $data->slug = Str::slug(strtolower($request->name));
+        $data->save();
+        if ($data) {
+            Session::flash('success','Kategori berhasil ditambahkan, terima kasih.');
+            return redirect()->route('owner.kategori');
+        }
+    }
+
+    public function kategori_edit($id)
+    {
+        $data = PackageKat::find($id);
+        return view('owner.kategori_edit',compact('data'));
     }
 
 }

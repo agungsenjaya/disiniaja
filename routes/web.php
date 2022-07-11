@@ -54,7 +54,9 @@ Route::GROUP(['prefix' => 'owner',  'middleware' => ['role:owner']], function(){
     Route::GET('kategori','OwnerController@kategori')->name('owner.kategori');
     Route::GET('kategori/create','OwnerController@kategori_create')->name('owner.kategori_create');
     Route::POST('kategori/store','OwnerController@kategori_store')->name('owner.kategori_store');
+    Route::POST('kategori/update/{id}','OwnerController@kategori_update')->name('owner.kategori_update');
     Route::GET('kategori/view','OwnerController@kategori_view')->name('owner.kategori_view');
+    Route::GET('kategori/edit/{id}','OwnerController@kategori_edit')->name('owner.kategori_edit');
 
 });
 
