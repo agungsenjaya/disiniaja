@@ -25,7 +25,7 @@ $no = 1;
                 <td>{{ $fra->price }}</td>
                 <td>{{ $fra->price_m }}</td>
                 <td>
-                    <a href="#" class="badge bg-primary w-100 py-2">Detail</a>
+                    <a href="#" class="btn btn-primary btn-sm w-100">Detail</a>
                 </td>
             </tr>
             @endforeach

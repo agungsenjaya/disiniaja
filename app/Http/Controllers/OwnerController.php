@@ -149,7 +149,7 @@ class OwnerController extends Controller
     public function cetak_store(Request $request)
     {
         $valid = Validator::make($request->all(), [
-            'name' => 'unique:frames',
+            'name' => 'unique:cetaks',
             'price' => 'required',
             'price_m' => 'required',
         ]);

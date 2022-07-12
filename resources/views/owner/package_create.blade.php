@@ -25,6 +25,8 @@
     </select>
   </div>
   </div>
+  <label class="form-label">Jumlah Orang<span class="text-danger ms-1">*</span></label>
+      <input type="number" class="form-control">
 </div>
 </section>
 <section class="card mb-3">
@@ -52,40 +54,62 @@
     </div>
     </div>
     </div>
-</section>
+  </section>
+  <section class="card mb-3">
+    <div class="card-body">
+          <label class="form-label">Biaya Paket<span class="text-danger ms-1">*</span></label>
+          <div class="input-group">
+  <span class="input-group-text" id="biaya">Rp</span>
+  <input class="form-control" id="currency-mask" value="80000">
+</div>
+      </div>
+    </section>
+<button type="button" class="btn btn-outline-primary me-2" onClick="kalkulasi()">Kalkulasi</button>
 <button type="submit" class="btn btn-primary">Insert Paket</button>
 </form>
 @endsection
 @section('js')
 <script src="https://cdnjs.cloudflare.com/ajax/libs/imask/6.2.2/imask.min.js"></script>
 <script>
-  // var currencyMask = IMask(
-  // document.getElementById('currency-mask'),
-  // {
-  //   mask: 'num',
-  //   blocks: {
-  //     num: {
-  //       mask: Number,
-  //       thousandsSeparator: ','
-  //     }
-  //   }
-  // });
+  var currencyMask = IMask(
+  document.getElementById('currency-mask'),
+  {
+    mask: 'num',
+    blocks: {
+      num: {
+        mask: Number,
+        thousandsSeparator: '.'
+      }
+    }
+  });
+
+  function delFrame(e) {
+    $(`.frame-${e}`).remove();
+  }
+  
+  function delCetak(e) {
+    $(`.cetak-${e}`).remove();
+  }
+  
+let frame = 1;
+let cetak = 1;
 
   $('#frame_add').on('click', function(){
-    $('#frame').append(`<div class="row mt-3">
+    let fr = frame++;
+    $('#frame').append(`<div class="row mt-3 frames frame-${fr}">
         <div class="col">
-          <select name="" id="" class="form-select">
+          <select id="" name="frame" class="form-select">
             <option value="">-- Select Option --</option>
             @foreach($frame as $fra)
-            <option value="{{ $fra->id }}">{{ $fra->name }}</option>
+            <option value="{{ $fra }}">{{ $fra->name }}</option>
             @endforeach
           </select>
         </div>
         <div class="col">
-          <input type="number" class="form-control" value="0">
+          <input type="number" name="frame_qty" class="form-control" value="0">
         </div>
         <div class="col-1 text-center align-self-center">
-        <a href="javascript:void(0)" class="text-danger">
+        <a href="javascript:void(0)" class="text-danger" onClick="delFrame(${fr})">
           <i class="bi bi-dash-circle-fill"></i>
         </a>
         </div>
@@ -93,12 +117,13 @@
   });
 
   $('#cetak_add').on('click', function(){
-    $('#cetak').append(`<div class="row mt-3">
+    let ct = cetak++;
+    $('#cetak').append(`<div class="row mt-3 cetak-${ct}"">
         <div class="col">
-          <select name="" id="" class="form-select">
+          <select id="" class="form-select">
             <option value="">-- Select Option --</option>
             @foreach($cetak as $cet)
-            <option value="{{ $cet->id }}">{{ $cet->name }}</option>
+            <option value="{{ $cet }}">{{ $cet->name }}</option>
             @endforeach
           </select>
         </div>
@@ -106,11 +131,23 @@
           <input type="number" class="form-control" value="0">
         </div>
         <div class="col-1 text-center align-self-center">
-        <a href="javascript:void(0)" class="text-danger">
+        <a href="javascript:void(0)" class="text-danger" onClick="delCetak(${ct})">
           <i class="bi bi-dash-circle-fill"></i>
         </a>
         </div>
       </div>`);
   });
+
+  function kalkulasi(){
+    var ars = [];
+    var ids = $('.frames').map(function() {
+    var va = JSON.parse($(this).find(`select[name="frame"]`).val());
+      var ods = $('.frames').map(function() {
+        var vi = $(this).find(`input[name="frame_qty"]`).val();
+      });
+      ars.push({id: va.id});
+    });
+    console.log(ars);
+  }
 </script>
 @endsection

@@ -31,6 +31,10 @@
       margin-left: 15px;
     }
   }
+
+  .form-label {
+    font-size: 12px;
+  }
 /* END CUSTOM BOOTSTRAP */
 
 .nav-admin {

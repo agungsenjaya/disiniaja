@@ -61,7 +61,7 @@
     blocks: {
       num: {
         mask: Number,
-        thousandsSeparator: ','
+        thousandsSeparator: '.'
       }
     }
   });
@@ -72,7 +72,7 @@
     blocks: {
       num: {
         mask: Number,
-        thousandsSeparator: ','
+        thousandsSeparator: '.'
       }
     }
   });

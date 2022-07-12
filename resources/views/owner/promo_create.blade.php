@@ -62,7 +62,7 @@
     blocks: {
       num: {
         mask: Number,
-        thousandsSeparator: ','
+        thousandsSeparator: '.'
       }
     }
   });
