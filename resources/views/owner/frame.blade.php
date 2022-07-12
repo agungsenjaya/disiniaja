@@ -22,8 +22,8 @@ $no = 1;
                 <td>{{ $no++ }}</td>
                 <td>{{ $fra->name }}</td>
                 <td>{{ $fra->qty }}</td>
-                <td>{{ $fra->price }}</td>
-                <td>{{ $fra->price_m }}</td>
+                <td>Rp {{ $fra->price }}</td>
+                <td>Rp {{ $fra->price_m }}</td>
                 <td>
                     <a href="#" class="btn btn-primary btn-sm w-100">Detail</a>
                 </td>

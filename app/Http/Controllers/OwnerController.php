@@ -52,7 +52,7 @@ class OwnerController extends Controller
     public function promo_store(Request $request)
     {
         $valid = Validator::make($request->all(), [
-            'name' => 'unique:packages',
+            'name' => 'unique:promos',
             'status' => 'required',
         ]);
         if ($valid->fails()) {
@@ -181,6 +181,7 @@ class OwnerController extends Controller
     
     public function paket_store(Request $request)
     {
+        // dd($request->all());
         $valid = Validator::make($request->all(), [
             'name' => 'unique:packages',
         ]);
@@ -190,13 +191,11 @@ class OwnerController extends Controller
         }
         $data = Package::create([
             'user_id' => Auth::user()->id,
+            'package_kat_id' => $request->package_kat_id,
             'name' => strtolower($request->name),
             'price' => $request->price,
-            'order_kat_id' => $request->order_kat_id,
-            'frame_id' => ($request->frame_id) ? $request->frame_id : NULL,
-            'frame_qty' => ($request->frame_qty) ? $request->frame_qty : NULL,
-            'cetak_id' => ($request->cetak_id) ? $request->cetak_id : NULL,
-            'cetak_qty' => ($request->cetak_qty) ? $request->cetak_qty : NULL,
+            'data' => ($request->data) ? $request->data : NULL,
+            'slug' => Str::slug(strtolower($request->name)),
         ]);
         if ($data) {
             Session::flash('success','Data berhasil input, terima kasih.');

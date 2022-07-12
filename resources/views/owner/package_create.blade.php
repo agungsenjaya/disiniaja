@@ -8,6 +8,7 @@
 </nav>
 <form method="POST" action="{{ route('owner.paket_store') }}">
   @csrf
+  <input type="hidden" name="data">
 <section class="card mb-3">
     <div class="card-body">
   <div class="mb-3 row">
@@ -17,7 +18,7 @@
   </div>
   <div class="col">
     <label class="form-label">Kategori Paket<span class="text-danger ms-1">*</span></label>
-    <select class="form-select" name="order_kat_id" id="" required>
+    <select class="form-select" name="package_kat_id" id="" required>
       <option value="">-- Select Option --</option>
       @foreach($kategori as $kat)
       <option value="{{ $kat->id }}">{{ $kat->name }}</option>
@@ -26,7 +27,7 @@
   </div>
   </div>
   <label class="form-label">Jumlah Orang<span class="text-danger ms-1">*</span></label>
-      <input type="number" class="form-control">
+      <input type="number" class="form-control" name="human">
 </div>
 </section>
 <section class="card mb-3">
@@ -60,11 +61,11 @@
           <label class="form-label">Biaya Paket<span class="text-danger ms-1">*</span></label>
           <div class="input-group">
   <span class="input-group-text" id="biaya">Rp</span>
-  <input class="form-control" id="currency-mask" value="80000">
+  <input class="form-control" id="currency-mask" name="price" required>
 </div>
       </div>
     </section>
-<button type="button" class="btn btn-outline-primary me-2" onClick="kalkulasi()">Kalkulasi</button>
+<!-- <button type="button" class="btn btn-outline-primary me-2" onClick="kalkulasi()">Kalkulasi</button> -->
 <button type="submit" class="btn btn-primary">Insert Paket</button>
 </form>
 @endsection
@@ -98,15 +99,15 @@ let cetak = 1;
     let fr = frame++;
     $('#frame').append(`<div class="row mt-3 frames frame-${fr}">
         <div class="col">
-          <select id="" name="frame" class="form-select">
+          <select id="" name="frame" class="form-select" required>
             <option value="">-- Select Option --</option>
             @foreach($frame as $fra)
-            <option value="{{ $fra }}">{{ $fra->name }}</option>
+            <option value="{{ $fra }}">{{ $fra->name }} Rp {{ $fra->price_m }}</option>
             @endforeach
           </select>
         </div>
         <div class="col">
-          <input type="number" name="frame_qty" class="form-control" value="0">
+          <input type="number" name="frame_qty" class="form-control" value="0" required>
         </div>
         <div class="col-1 text-center align-self-center">
         <a href="javascript:void(0)" class="text-danger" onClick="delFrame(${fr})">
@@ -118,17 +119,17 @@ let cetak = 1;
 
   $('#cetak_add').on('click', function(){
     let ct = cetak++;
-    $('#cetak').append(`<div class="row mt-3 cetak-${ct}"">
+    $('#cetak').append(`<div class="row mt-3 cetaks cetak-${ct}"">
         <div class="col">
-          <select id="" class="form-select">
+          <select id="" name="cetak" class="form-select" required>
             <option value="">-- Select Option --</option>
             @foreach($cetak as $cet)
-            <option value="{{ $cet }}">{{ $cet->name }}</option>
+            <option value="{{ $cet }}">{{ $cet->name }} Rp {{ $fra->price_m }}</option>
             @endforeach
           </select>
         </div>
         <div class="col">
-          <input type="number" class="form-control" value="0">
+          <input type="number" name="cetak_qty" class="form-control" value="0" required>
         </div>
         <div class="col-1 text-center align-self-center">
         <a href="javascript:void(0)" class="text-danger" onClick="delCetak(${ct})">
@@ -138,16 +139,26 @@ let cetak = 1;
       </div>`);
   });
 
-  function kalkulasi(){
+  $('form').submit(function(event){
     var ars = [];
     var ids = $('.frames').map(function() {
     var va = JSON.parse($(this).find(`select[name="frame"]`).val());
-      var ods = $('.frames').map(function() {
-        var vi = $(this).find(`input[name="frame_qty"]`).val();
-      });
-      ars.push({id: va.id});
+    var vi = JSON.parse($(this).find(`input[name="frame_qty"]`).val());
+    ars.push({id: va.id, price: va.price, price_m: va.price_m, qty: vi});
     });
-    console.log(ars);
-  }
+    
+    var arss = [];
+    var ods = $('.cetaks').map(function() {
+    var ve = JSON.parse($(this).find(`select[name="cetak"]`).val());
+    var vo = JSON.parse($(this).find(`input[name="cetak_qty"]`).val());
+    arss.push({id: ve.id, price: ve.price, price_m: ve.price_m, qty: vo});
+    });
+
+    var arsss = [];
+    arsss.push({frame:ars,cetak:arss})
+    $('input[name="data"]').val(JSON.stringify(arsss));
+    console.log(arsss);
+    return true
+  });
 </script>
 @endsection

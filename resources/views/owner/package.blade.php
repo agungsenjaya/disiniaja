@@ -9,9 +9,8 @@ $no = 1;
         <thead>
             <tr>
                 <th>No</th>
-                <th>Code</th>
                 <th>Nama</th>
-                <th>Paket</th>
+                <th>Price</th>
                 <th>Tgl</th>
                 <th>Action</th>
             </tr>
@@ -20,12 +19,11 @@ $no = 1;
             @foreach($paket->reverse() as $pak)
             <tr>
                 <td>{{ $no++ }}</td>
-                <td>{{ $pak->code }}</td>
-                <td>{{ $pak->name }}</td>
-                <td>{{ $pak->package_id }}</td>
+                <td class="text-capitalize">{{ $pak->name }}</td>
+                <td>Rp {{ $pak->price }}</td>
                 <td>{{ $pak->created_at }}</td>
                 <td>
-                    <a href="#" class="badge bg-primary w-100">Detail</a>
+                    <a href="#" class="btn btn-primary btn-sm w-100">Detail</a>
                 </td>
             </tr>
             @endforeach

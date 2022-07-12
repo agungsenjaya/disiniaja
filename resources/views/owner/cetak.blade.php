@@ -20,8 +20,8 @@ $no = 1;
             <tr>
                 <td>{{ $no++ }}</td>
                 <td>{{ $cet->name }}</td>
-                <td>{{ $cet->price }}</td>
-                <td>{{ $cet->price_m }}</td>
+                <td>Rp {{ $cet->price }}</td>
+                <td>Rp {{ $cet->price_m }}</td>
                 <td>
                     <a href="#" class="btn btn-primary btn-sm w-100">Detail</a>
                 </td>
