@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.owner')
 @section('content')
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb text-uppercase small">

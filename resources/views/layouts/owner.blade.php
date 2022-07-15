@@ -96,8 +96,105 @@
                     </a>
                   </div>
                 </div>
+                <a href="javascript:void(0)" class="list-group-item list-group-item-action" data-bs-toggle="collapse" data-bs-target="#nav-3" aria-expanded="false">
+                <div class="d-flex justify-content-between">
+                        <div>
+                            <i class='opacity-100 bx bxs-carousel me-3'></i>Paket
+                        </div>
+                        <div>
+                            <i class='opacity-100 bi bi-chevron-down'></i>
+                        </div>
+                    </div>
+                </a>
+                <div class="collapse" id="nav-3" style="">
+                  <div class="list-group list-group-flush nav-admin">
+                    <a href="{{ route('owner.paket') }}" class="list-group-item list-group-item-action">
+                      <i class="opacity-100 bi bi-dot me-3"></i>List Paket
+                    </a>
+                    <a href="{{ route('owner.paket_create') }}" class="list-group-item list-group-item-action">
+                      <i class="opacity-100 bi bi-dot me-3"></i>Add Paket
+                    </a>
+                    <a href="{{ route('owner.kategori') }}" class="list-group-item list-group-item-action">
+                      <i class="opacity-100 bi bi-dot me-3"></i>List Kategori
+                    </a>
+                    <a href="{{ route('owner.kategori_create') }}" class="list-group-item list-group-item-action">
+                      <i class="opacity-100 bi bi-dot me-3"></i>Add Kategori
+                    </a>
+                  </div>
+                </div>
+                <a href="javascript:void(0)" class="list-group-item list-group-item-action" data-bs-toggle="collapse" data-bs-target="#nav-4" aria-expanded="false">
+                <div class="d-flex justify-content-between">
+                        <div>
+                            <i class='opacity-100 bx bxs-grid-alt me-3'></i>Frame
+                        </div>
+                        <div>
+                            <i class='opacity-100 bi bi-chevron-down'></i>
+                        </div>
+                    </div>
+                </a>
+                <div class="collapse" id="nav-4" style="">
+                  <div class="list-group list-group-flush nav-admin">
+                    <a href="{{ route('owner.frame') }}" class="list-group-item list-group-item-action">
+                      <i class="opacity-100 bi bi-dot me-3"></i>List Frame
+                    </a>
+                    <a href="{{ route('owner.frame_create') }}" class="list-group-item list-group-item-action">
+                      <i class="opacity-100 bi bi-dot me-3"></i>Add Frame
+                    </a>
+                  </div>
+                </div>
+                <a href="javascript:void(0)" class="list-group-item list-group-item-action" data-bs-toggle="collapse" data-bs-target="#nav-6" aria-expanded="false">
+                <div class="d-flex justify-content-between">
+                        <div>
+                            <i class='opacity-100 bx bxs-file me-3'></i>Cetak
+                        </div>
+                        <div>
+                            <i class='opacity-100 bi bi-chevron-down'></i>
+                        </div>
+                    </div>
+                </a>
+                <div class="collapse" id="nav-6" style="">
+                  <div class="list-group list-group-flush nav-admin">
+                    <a href="{{ route('owner.cetak') }}" class="list-group-item list-group-item-action">
+                      <i class="opacity-100 bi bi-dot me-3"></i>List Cetak
+                    </a>
+                    <a href="{{ route('owner.cetak_create') }}" class="list-group-item list-group-item-action">
+                      <i class="opacity-100 bi bi-dot me-3"></i>Add Cetak
+                    </a>
+                  </div>
+                </div>
+                <a href="#" class="list-group-item list-group-item-action">
+                    <i class="opacity-100 bx bxs-report me-3"></i>Reporting
+                </a>
               </div>
-            
+              <p class="sub-nav m-3 text-white">Others</p>
+              <div class="list-group list-group-flush nav-admin">
+              <a href="javascript:void(0)" class="list-group-item list-group-item-action" data-bs-toggle="collapse" data-bs-target="#nav-5" aria-expanded="false">
+                <div class="d-flex justify-content-between">
+                        <div>
+                            <i class='opacity-100 bx bxs-user-account me-3'></i>User
+                        </div>
+                        <div>
+                            <i class='opacity-100 bi bi-chevron-down'></i>
+                        </div>
+                    </div>
+                </a>
+                <div class="collapse" id="nav-5" style="">
+                  <div class="list-group list-group-flush nav-admin">
+                    <a href="#" class="list-group-item list-group-item-action">
+                      <i class="opacity-100 bi bi-dot me-3"></i>List User
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action">
+                      <i class="opacity-100 bi bi-dot me-3"></i>Add User
+                    </a>
+                  </div>
+                </div>
+                <a href="#" class="list-group-item list-group-item-action">
+                    <i class="opacity-100 bx bxs-user-circle me-3"></i>Account
+                </a>
+                <a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#modalOut" class="list-group-item list-group-item-action">
+                    <i class="opacity-100 bx bx-log-out-circle me-3"></i>Logout
+                </a>
+              </div>
               
             </div>
                 

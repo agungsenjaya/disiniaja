@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Order extends Model
+class Cancle extends Model
 {
-    protected $guarded = ['orders'];
+    protected $guarded = ['cancles'];
 }

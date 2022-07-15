@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFramesTable extends Migration
+class CreateCanclesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,12 @@ class CreateFramesTable extends Migration
      */
     public function up()
     {
-        Schema::create('frames', function (Blueprint $table) {
+        Schema::create('cancles', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id');
-            $table->string('name');
-            $table->integer('qty')->nullable();
-            $table->string('price_m');
-            $table->string('price');
+            $table->integer('order_id');
+            $table->longText('catatan')->nullable();
+            $table->string('price')->nullable();
             $table->timestamps();
         });
     }
@@ -31,6 +30,6 @@ class CreateFramesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('frames');
+        Schema::dropIfExists('cancles');
     }
 }

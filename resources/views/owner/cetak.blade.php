@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.owner')
 @section('content')
 @php
 $no = 1;
@@ -20,8 +20,8 @@ $no = 1;
             <tr>
                 <td>{{ $no++ }}</td>
                 <td>{{ $cet->name }}</td>
-                <td>Rp {{ $cet->price }}</td>
                 <td>Rp {{ $cet->price_m }}</td>
+                <td>Rp {{ $cet->price }}</td>
                 <td>
                     <a href="#" class="btn btn-primary btn-sm w-100">Detail</a>
                 </td>

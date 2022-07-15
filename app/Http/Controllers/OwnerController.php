@@ -193,6 +193,7 @@ class OwnerController extends Controller
             'user_id' => Auth::user()->id,
             'package_kat_id' => $request->package_kat_id,
             'name' => strtolower($request->name),
+            'orang' => ($request->orang) ? $request->orang : NULL,
             'price' => $request->price,
             'data' => ($request->data) ? $request->data : NULL,
             'slug' => Str::slug(strtolower($request->name)),

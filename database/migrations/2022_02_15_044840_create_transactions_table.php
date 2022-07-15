@@ -17,9 +17,7 @@ class CreateTransactionsTable extends Migration
             $table->id();
             $table->integer('user_id');
             $table->integer('order_id');
-            $table->string('code')->nullabel();
-            $table->enum('metode',['manual','online']);
-            $table->enum('status',['paid','booking','cancle','expired']);
+            $table->enum('pembayaran',['cash','debit']);
             $table->string('price');
             $table->timestamps();
         });

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.owner')
 @section('content')
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb text-uppercase small">
@@ -26,8 +26,10 @@
     </select>
   </div>
   </div>
-  <label class="form-label">Jumlah Orang<span class="text-danger ms-1">*</span></label>
-      <input type="number" class="form-control" name="human">
+  <div class="">
+    <label class="form-label">Jumlah Orang</label>
+    <input type="number" class="form-control" name="orang">
+  </div>
 </div>
 </section>
 <section class="card mb-3">
@@ -102,7 +104,7 @@ let cetak = 1;
           <select id="" name="frame" class="form-select" required>
             <option value="">-- Select Option --</option>
             @foreach($frame as $fra)
-            <option value="{{ $fra }}">{{ $fra->name }} Rp {{ $fra->price_m }}</option>
+            <option value="{{ $fra }}">{{ $fra->name }} - Rp {{ $fra->price }}</option>
             @endforeach
           </select>
         </div>
@@ -124,7 +126,7 @@ let cetak = 1;
           <select id="" name="cetak" class="form-select" required>
             <option value="">-- Select Option --</option>
             @foreach($cetak as $cet)
-            <option value="{{ $cet }}">{{ $cet->name }} Rp {{ $fra->price_m }}</option>
+            <option value="{{ $cet }}">{{ $cet->name }} - Rp {{ $cet->price }}</option>
             @endforeach
           </select>
         </div>
@@ -144,19 +146,28 @@ let cetak = 1;
     var ids = $('.frames').map(function() {
     var va = JSON.parse($(this).find(`select[name="frame"]`).val());
     var vi = JSON.parse($(this).find(`input[name="frame_qty"]`).val());
-    ars.push({id: va.id, price: va.price, price_m: va.price_m, qty: vi});
+    ars.push({id: va.id, qty: vi, price: va.price, price_m: va.price_m});
     });
     
     var arss = [];
     var ods = $('.cetaks').map(function() {
     var ve = JSON.parse($(this).find(`select[name="cetak"]`).val());
     var vo = JSON.parse($(this).find(`input[name="cetak_qty"]`).val());
-    arss.push({id: ve.id, price: ve.price, price_m: ve.price_m, qty: vo});
+    arss.push({id: ve.id, qty: vo, price: ve.price, price_m: ve.price_m});
     });
 
     var arsss = [];
-    arsss.push({frame:ars,cetak:arss})
-    $('input[name="data"]').val(JSON.stringify(arsss));
+    if (ars.length > 0 && arss.length > 0) {
+      arsss.push({frame:ars,cetak:arss});
+      $('input[name="data"]').val(JSON.stringify(arsss));
+    }else if(ars.length > 0){
+      arsss.push({frame:ars});
+      $('input[name="data"]').val(JSON.stringify(arsss));
+    }else if(arss.length > 0){
+      arsss.push({frame:arss});
+      $('input[name="data"]').val(JSON.stringify(arsss));
+    }else{
+    }
     console.log(arsss);
     return true
   });

@@ -17,6 +17,7 @@ class CreatePackagesTable extends Migration
             $table->id();
             $table->integer('user_id');
             $table->integer('package_kat_id');
+            $table->integer('orang')->nullable();
             $table->json('data')->nullable();
             $table->string('name');
             $table->string('price');
