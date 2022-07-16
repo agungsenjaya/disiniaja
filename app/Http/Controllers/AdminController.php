@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Carbon\Carbon;
+use App\Package;
 use DB,Session,Str,Validator,Auth,Hash;
 
 class AdminController extends Controller
@@ -15,6 +16,6 @@ class AdminController extends Controller
 
     public function index()
     {
-        return view('admin.home');
+        return view('admin.home')->with('paket', Package::all());
     }
 }

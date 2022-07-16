@@ -121,12 +121,6 @@
         <!-- <li class="nav-item">
           <a class="nav-link" href="#">{{ Auth::user()->name }}</a>
         </li> -->
-        <li class="nav-item me-4">
-          <div class="input-group flex-nowrap" style="width:400px">
-            <span class="input-group-text" id="addon-wrapping">@</span>
-            <input type="text" class="form-control" placeholder="Search Transaction" aria-label="Username" aria-describedby="addon-wrapping">
-          </div>
-        </li>
         <li class="nav-item dropdown align-self-center">
           <a class="text-white dropdown-toggle text-capitalize" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
           <i class="bi bi-person-circle me-2"></i>{{ Auth::user()->name }}

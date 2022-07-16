@@ -146,14 +146,14 @@ let cetak = 1;
     var ids = $('.frames').map(function() {
     var va = JSON.parse($(this).find(`select[name="frame"]`).val());
     var vi = JSON.parse($(this).find(`input[name="frame_qty"]`).val());
-    ars.push({id: va.id, qty: vi, price: va.price, price_m: va.price_m});
+    ars.push({id: va.id, name: va.name, qty: vi, price: va.price, price_m: va.price_m});
     });
     
     var arss = [];
     var ods = $('.cetaks').map(function() {
     var ve = JSON.parse($(this).find(`select[name="cetak"]`).val());
     var vo = JSON.parse($(this).find(`input[name="cetak_qty"]`).val());
-    arss.push({id: ve.id, qty: vo, price: ve.price, price_m: ve.price_m});
+    arss.push({id: ve.id, name: ve.name, qty: vo, price: ve.price, price_m: ve.price_m});
     });
 
     var arsss = [];
