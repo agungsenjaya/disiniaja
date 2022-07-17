@@ -23,8 +23,6 @@ class CreateOrdersTable extends Migration
             $table->string('phone')->nullable();
             $table->longText('alamat')->nullable();
             $table->enum('status_pembayaran',['lunas','belum lunas']);
-            $table->enum('mode_booking',['ofline','online']);
-            $table->dateTime('booking_date')->nullable();
             $table->string('total');
             $table->timestamps();
         });
