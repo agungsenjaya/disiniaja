@@ -7397,7 +7397,7 @@ progress {
   padding: 0.25rem;
   background-color: #f8fafc;
   border: 1px solid #dee2e6;
-  border-radius: 0.6rem;
+  border-radius: 0.25rem;
   max-width: 100%;
   height: auto;
 }
@@ -9026,7 +9026,7 @@ progress {
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
-  border-radius: 0.6rem;
+  border-radius: 0.25rem;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
@@ -9215,12 +9215,12 @@ textarea.form-control-lg {
 
 .form-control-color::-moz-color-swatch {
   height: 1.6em;
-  border-radius: 0.6rem;
+  border-radius: 0.25rem;
 }
 
 .form-control-color::-webkit-color-swatch {
   height: 1.6em;
-  border-radius: 0.6rem;
+  border-radius: 0.25rem;
 }
 
 .form-select {
@@ -9238,7 +9238,7 @@ textarea.form-control-lg {
   background-position: right 0.75rem center;
   background-size: 16px 12px;
   border: 1px solid #ced4da;
-  border-radius: 0.6rem;
+  border-radius: 0.25rem;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
   -webkit-appearance: none;
      -moz-appearance: none;
@@ -9650,7 +9650,7 @@ textarea.form-control-lg {
   white-space: nowrap;
   background-color: #e9ecef;
   border: 1px solid #ced4da;
-  border-radius: 0.6rem;
+  border-radius: 0.25rem;
 }
 
 .input-group-lg > .form-control,
@@ -9713,7 +9713,7 @@ textarea.form-control-lg {
   font-size: 0.7875rem;
   color: #000;
   background-color: rgba(56, 193, 114, 0.9);
-  border-radius: 0.6rem;
+  border-radius: 0.25rem;
 }
 
 .was-validated :valid ~ .valid-feedback,
@@ -9823,7 +9823,7 @@ textarea.form-control.is-valid {
   font-size: 0.7875rem;
   color: #000;
   background-color: rgba(227, 52, 47, 0.9);
-  border-radius: 0.6rem;
+  border-radius: 0.25rem;
 }
 
 .was-validated :invalid ~ .invalid-feedback,
@@ -9931,7 +9931,7 @@ textarea.form-control.is-invalid {
   border: 1px solid transparent;
   padding: 0.375rem 0.75rem;
   font-size: 0.9rem;
-  border-radius: 0.6rem;
+  border-radius: 0.25rem;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
@@ -10749,7 +10749,7 @@ fieldset:disabled .btn {
   background-color: #fff;
   background-clip: padding-box;
   border: 1px solid rgba(0, 0, 0, 0.15);
-  border-radius: 0.6rem;
+  border-radius: 0.25rem;
 }
 
 .dropdown-menu[data-bs-popper] {
@@ -11245,7 +11245,7 @@ fieldset:disabled .btn {
 .nav-pills .nav-link {
   background: none;
   border: 0;
-  border-radius: 0.6rem;
+  border-radius: 0.25rem;
 }
 
 .nav-pills .nav-link.active,
@@ -11346,7 +11346,7 @@ fieldset:disabled .btn {
   line-height: 1;
   background-color: transparent;
   border: 1px solid transparent;
-  border-radius: 0.6rem;
+  border-radius: 0.25rem;
   transition: box-shadow 0.15s ease-in-out;
 }
 
@@ -11864,7 +11864,7 @@ fieldset:disabled .btn {
   background-color: #fff;
   background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, 0.125);
-  border-radius: 0.6rem;
+  border-radius: 0.25rem;
 }
 
 .card > hr {
@@ -12291,7 +12291,7 @@ fieldset:disabled .btn {
   text-align: center;
   white-space: nowrap;
   vertical-align: baseline;
-  border-radius: 0.6rem;
+  border-radius: 0.25rem;
 }
 
 .badge:empty {
@@ -12308,7 +12308,7 @@ fieldset:disabled .btn {
   padding: 1rem 1rem;
   margin-bottom: 1rem;
   border: 1px solid transparent;
-  border-radius: 0.6rem;
+  border-radius: 0.25rem;
 }
 
 .alert-heading {
@@ -12429,7 +12429,7 @@ fieldset:disabled .btn {
   overflow: hidden;
   font-size: 0.675rem;
   background-color: #e9ecef;
-  border-radius: 0.6rem;
+  border-radius: 0.25rem;
 }
 
 .progress-bar {
@@ -12472,7 +12472,7 @@ fieldset:disabled .btn {
   flex-direction: column;
   padding-left: 0;
   margin-bottom: 0;
-  border-radius: 0.6rem;
+  border-radius: 0.25rem;
 }
 
 .list-group-numbered {
@@ -12881,7 +12881,7 @@ fieldset:disabled .btn {
   color: #000;
   background: transparent url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23000'%3e%3cpath d='M.293.293a1 1 0 011.414 0L8 6.586 14.293.293a1 1 0 111.414 1.414L9.414 8l6.293 6.293a1 1 0 01-1.414 1.414L8 9.414l-6.293 6.293a1 1 0 01-1.414-1.414L6.586 8 .293 1.707a1 1 0 010-1.414z'/%3e%3c/svg%3e") center/1em auto no-repeat;
   border: 0;
-  border-radius: 0.6rem;
+  border-radius: 0.25rem;
   opacity: 0.5;
 }
 
@@ -12920,7 +12920,7 @@ fieldset:disabled .btn {
   background-clip: padding-box;
   border: 1px solid rgba(0, 0, 0, 0.1);
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
-  border-radius: 0.6rem;
+  border-radius: 0.25rem;
 }
 
 .toast.showing {
@@ -13409,7 +13409,7 @@ fieldset:disabled .btn {
   color: #fff;
   text-align: center;
   background-color: #000;
-  border-radius: 0.6rem;
+  border-radius: 0.25rem;
 }
 
 .popover {
@@ -15554,7 +15554,7 @@ fieldset:disabled .btn {
 }
 
 .rounded {
-  border-radius: 0.6rem !important;
+  border-radius: 0.25rem !important;
 }
 
 .rounded-0 {
@@ -15566,7 +15566,7 @@ fieldset:disabled .btn {
 }
 
 .rounded-2 {
-  border-radius: 0.6rem !important;
+  border-radius: 0.25rem !important;
 }
 
 .rounded-3 {

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Package;
+use App\Frame;
+use App\Cetak;
 use DB,Session,Str,Validator,Auth,Hash;
 
 class AdminController extends Controller
@@ -16,6 +18,6 @@ class AdminController extends Controller
 
     public function index()
     {
-        return view('admin.home')->with('paket', Package::all());
+        return view('admin.home')->with('paket', Package::all())->with('frame',Frame::all())->with('cetak', Cetak::all());
     }
 }

@@ -208,7 +208,7 @@
               @endguest
                 @guest
                 @else
-                <nav class="navbar navbar-light bg-primary sticky-top" style="height:60px">
+                <nav class="navbar navbar-light bg-primary" style="height:60px">
                 <div class="container-fluid mx-3">
                     <div>
                       <h5 class="mb-0 text-white fw-bold">Dashboard</h5>
