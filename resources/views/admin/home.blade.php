@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 @section('content')
 <div class="row">
-    <div class="col-md-9">
+    <div class="col-md-8">
 <div class="mb-3">
   <img src="https://dummyimage.com/1349x300" alt="" width="100%" class="rounded">
 </div>
@@ -15,7 +15,7 @@
         @if($pak->package_kat_id == 3)
         <div class="swiper-slide">
         <div class="card rounded alert-primary">
-            <div class="card-body d-flex justify-content-between">
+            <div class="card-body d-flex justify-content-between py-2">
               <div>
                 <h6 class="card-title text-capitalize fw-bold mb-0">{{ $pak->name }}</h6>
               </div>
@@ -47,12 +47,12 @@
         @foreach($frame as $fra)
         <div class="swiper-slide">
         <div class="card rounded alert-primary">
-            <div class="card-body d-flex justify-content-between">
+            <div class="card-body d-flex justify-content-between py-2">
               <div>
                 <h6 class="card-title text-capitalize fw-bold mb-0">Frame {{ $fra->name }}</h6>
               </div>
               <div>
-              <a href="javascript:void(0)">
+              <a href="javascript:void(0)" onClick="addFrame({{ $fra }})" class="frame-{{ $fra->id }}">
             <i class="bi-plus-circle-fill"></i>
           </a>
               </div>
@@ -78,12 +78,12 @@
         @foreach($cetak as $cet)
         <div class="swiper-slide">
         <div class="card rounded alert-primary">
-            <div class="card-body d-flex justify-content-between">
+            <div class="card-body d-flex justify-content-between py-2">
               <div>
                 <h6 class="card-title text-capitalize fw-bold mb-0">Cetakan {{ $cet->name }}</h6>
               </div>
               <div>
-              <a href="javascript:void(0)">
+              <a href="javascript:void(0)" onClick="addCetak({{ $cet }})" class="cetak-{{ $cet->id }}">
             <i class="bi-plus-circle-fill"></i>
           </a>
               </div>
@@ -180,7 +180,7 @@
   @endforeach
 </div>
     </div>
-    <div class="col-md-3">
+    <div class="col-md-4">
     <div class="">
       <div class="card rounded">
         <div class="card-header d-flex justify-content-between">
@@ -194,165 +194,9 @@
       <div class="card-body">
         <ul class="list-group list-group-flush" id="paket">
           <li class="list-group-item sub-nav mb-3">Paket</li>
-          <li class="list-group-item border-0">
-            <div class="media">
-              <a href="javascript:void(0)" class="me-3 text-secondary">
-                <i class="bi-x-circle-fill"></i>
-              </a>
-              <div class="media-body">
-                <h6 class="fw-bold text-primary">Family 1</h6>
-                <div class="d-flex justify-content-between">
-                  <div>Rp 150.000</div>
-                  <div class="w-50">
-
-                  <div class="input-group input-group-sm">
-  <button class="btn btn-primary" type="button">
-    <i class="bi-dash"></i>
-  </button>
-  <input type="number" min="1" class="form-control"  value="1">
-  <button class="btn btn-primary" type="button">
-    <i class="bi-plus"></i>
-  </button>
-</div>
-
-                  </div>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li class="list-group-item border-0">
-            <div class="media">
-              <a href="javascript:void(0)" class="me-3 text-secondary">
-                <i class="bi-x-circle-fill"></i>
-              </a>
-              <div class="media-body">
-                <h6 class="fw-bold text-primary">Family 2</h6>
-                <div class="d-flex justify-content-between">
-                  <div>Rp 150.000</div>
-                  <div class="w-50">
-
-                  <div class="input-group input-group-sm">
-                    <button class="btn btn-primary" type="button">
-                      <i class="bi-dash"></i>
-                    </button>
-                    <input type="number" min="1" class="form-control"  value="1">
-                    <button class="btn btn-primary" type="button">
-                      <i class="bi-plus"></i>
-                    </button>
-                  </div>
-
-                  </div>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li class="list-group-item border-0">
-            <div class="media">
-              <a href="javascript:void(0)" class="me-3 text-secondary">
-                <i class="bi-x-circle-fill"></i>
-              </a>
-              <div class="media-body">
-                <h6 class="fw-bold text-primary">Family 3</h6>
-                <div class="d-flex justify-content-between">
-                  <div>Rp 150.000</div>
-                  <div class="w-50">
-
-                  <div class="input-group input-group-sm">
-  <button class="btn btn-primary" type="button">
-    <i class="bi-dash"></i>
-  </button>
-  <input type="number" min="1" class="form-control"  value="1">
-  <button class="btn btn-primary" type="button">
-    <i class="bi-plus"></i>
-  </button>
-</div>
-
-                  </div>
-                </div>
-              </div>
-            </div>
-          </li>
         </ul>
-        <ul class="list-group list-group-flush" id="tambahan">
+        <ul class="list-group list-group-flush" id="tambah">
           <li class="list-group-item sub-nav mb-3">Tambahan</li>
-          <li class="list-group-item border-0">
-            <div class="media">
-              <a href="javascript:void(0)" class="me-3 text-secondary">
-                <i class="bi-x-circle-fill"></i>
-              </a>
-              <div class="media-body">
-                <h6 class="fw-bold text-primary">Frame 4r</h6>
-                <div class="d-flex justify-content-between">
-                  <div>Rp 25.000</div>
-                  <div class="w-50">
-
-                  <div class="input-group input-group-sm">
-  <button class="btn btn-primary" type="button">
-    <i class="bi-dash"></i>
-  </button>
-  <input type="number" min="1" class="form-control"  value="1">
-  <button class="btn btn-primary" type="button">
-    <i class="bi-plus"></i>
-  </button>
-</div>
-
-                  </div>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li class="list-group-item border-0">
-            <div class="media">
-              <a href="javascript:void(0)" class="me-3 text-secondary">
-                <i class="bi-x-circle-fill"></i>
-              </a>
-              <div class="media-body">
-                <h6 class="fw-bold text-primary">Frame 5r</h6>
-                <div class="d-flex justify-content-between">
-                  <div>Rp 20.000</div>
-                  <div class="w-50">
-
-                  <div class="input-group input-group-sm">
-  <button class="btn btn-primary" type="button">
-    <i class="bi-dash"></i>
-  </button>
-  <input type="number" min="1" class="form-control"  value="1">
-  <button class="btn btn-primary" type="button">
-    <i class="bi-plus"></i>
-  </button>
-</div>
-
-                  </div>
-                </div>
-              </div>
-            </div>
-          </li>
-          <li class="list-group-item border-0">
-            <div class="media">
-              <a href="javascript:void(0)" class="me-3 text-secondary">
-                <i class="bi-x-circle-fill"></i>
-              </a>
-              <div class="media-body">
-                <h6 class="fw-bold text-primary">Cetakan 4r</h6>
-                <div class="d-flex justify-content-between">
-                  <div>Rp 15.000</div>
-                  <div class="w-50">
-
-                  <div class="input-group input-group-sm">
-  <button class="btn btn-primary" type="button">
-    <i class="bi-dash"></i>
-  </button>
-  <input type="number" min="1" class="form-control"  value="1">
-  <button class="btn btn-primary" type="button">
-    <i class="bi-plus"></i>
-  </button>
-</div>
-
-                  </div>
-                </div>
-              </div>
-            </div>
-          </li>
         </ul>
     </div>
     <div class="card-footer d-flex justify-content-between">
@@ -361,7 +205,7 @@
       </div>
       <div>
         <span class="fw-bold text-primary">
-          Rp 2.500.000
+        Rp <span id="sub-total"></span>
         </span>
       </div>
     </div>
@@ -427,104 +271,408 @@
 @endsection
 @section('js')
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.3.1/swiper-bundle.min.js" integrity="sha512-naEQG74IcOLQ6K/B1PmhIcZ4i3YE2FXs2zm603E1Q3shbron+PmYLg44/q+xAymD/RvskZ2H8l1Qa7I5qELlrg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/imask/6.2.2/imask.min.js"></script>
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/imask/6.2.2/imask.min.js"></script> -->
 <script>
   let data = [];
   let paket = [];
-  let tambahan = [];
+  let frame = [];
+  let extra = [];
+  let cetak = [];
+  let subtotal = 0;
+  /**
+   * 
+   *  === PAKET
+   * 
+   * */ 
   function addPaket(e) {
     let pak = e;
+    pak.qty = 1;
     paket.push(pak);
-    $(`.paket-${e.id}`).addClass('opacity-0');
-    console.log(paket);
-    // var a = $(`#item-${e}`).hasClass('border-primary');
-    // if (a) {
-    //   $(`#item-${e}`).removeClass('border-primary');
-    // }else{
-    //   $(`#item-${e}`).addClass('border-primary');
-    // }
-  };
 
-  var swiper1 = new Swiper(".swiper-1", {
-        slidesPerView: 1,
-        spaceBetween: 10,
-        pagination: {
-          el: ".pag-1",
-          clickable: true,
-        },
-        breakpoints: {
-          640: {
-            slidesPerView: 2,
-            spaceBetween: 20,
-          },
-          768: {
-            slidesPerView: 4,
-            spaceBetween: 20,
-          },
-          1024: {
-            slidesPerView: 4,
-            spaceBetween: 20,
-          },
-        },
-      });
-  
-      var swiper2 = new Swiper(".swiper-2", {
-        slidesPerView: 1,
-        spaceBetween: 10,
-        pagination: {
-          el: ".pag-2",
-          clickable: true,
-        },
-        breakpoints: {
-          640: {
-            slidesPerView: 2,
-            spaceBetween: 20,
-          },
-          768: {
-            slidesPerView: 4,
-            spaceBetween: 20,
-          },
-          1024: {
-            slidesPerView: 4,
-            spaceBetween: 20,
-          },
-        },
-      });
-      
-      var swiper3 = new Swiper(".swiper-3", {
-        slidesPerView: 1,
-        spaceBetween: 10,
-        pagination: {
-          el: ".pag-3",
-          clickable: true,
-        },
-        breakpoints: {
-          640: {
-            slidesPerView: 2,
-            spaceBetween: 20,
-          },
-          768: {
-            slidesPerView: 4,
-            spaceBetween: 20,
-          },
-          1024: {
-            slidesPerView: 4,
-            spaceBetween: 20,
-          },
-        },
-      });
+    subtotal += parseInt(e.price.replace(".", ""));
+    $("#sub-total").text(subtotal.toLocaleString("id-ID"));
 
-      var currencyMask = IMask(
-      document.getElementById('currency-mask'),
-      {
-        mask: 'num',
-        blocks: {
-          num: {
-            mask: Number,
-            thousandsSeparator: '.'
-          }
+    $(`.paket-${e.id}`).addClass("opacity-0");
+
+    $("#paket").append(` <li class="list-group-item border-0 paket" id="paket-${e.id}" data-price="${e.price.replace(".", "")}" data-total="${e.price.replace(".", "")}">
+            <div class="media">
+              <a href="javascript:void(0)" class="me-3 text-secondary" onClick="delPaket(${e.id})">
+                <i class="bi-x-circle-fill"></i>
+              </a>
+              <div class="media-body">
+                <h6 class="fw-bold text-primary text-capitalize">${e.name}</h6>
+                <div class="d-flex justify-content-between">
+                  <div>
+                    Rp <span class="price-text">${e.price}</span>
+                  </div>
+                  <div class="w-50">
+
+                  <div class="input-group input-group-sm">
+  <button class="btn btn-primary min-${e.id}" disabled onClick="minPaket(${e.id})" type="button">
+    <i class="bi-dash"></i>
+  </button>
+  <input type="number" min="1" class="form-control paket-form-${e.id}" disabled value="1">
+  <button class="btn btn-primary plus-${e.id}" onClick="plusPaket(${e.id})" type="button">
+    <i class="bi-plus"></i>
+  </button>
+</div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>`);
+
+    // console.log(paket);
+}
+
+function delPaket(e) {
+    subtotal -= parseInt($(`#paket-${e}`).attr("data-total"));
+    $("#sub-total").text(subtotal.toLocaleString("id-ID"));
+
+    $(`#paket-${e}`).remove();
+    paket = paket.filter(function (ele) {
+        return ele.id != e;
+    });
+
+    $(`.paket-${e}`).removeClass("opacity-0");
+
+    console.log(subtotal);
+}
+
+function plusPaket(e) {
+    $(`.min-${e}`).removeAttr("disabled");
+    let a = $(`.paket-form-${e}`).val();
+    let b = parseInt(a) + 1;
+    $(`.paket-form-${e}`).val(b);
+    let c = parseInt($(`#paket-${e}`).attr("data-total")) + parseInt($(`#paket-${e}`).attr("data-price"));
+    $(`#paket-${e}`).attr("data-total", c);
+    $(`#paket-${e} .price-text`).text(c.toLocaleString("id-ID"));
+    paket = paket.map((obj) => {
+        if (obj.id === e) {
+            return { ...obj, qty: b };
         }
-      });
+        return obj;
+    });
+    subtotal += parseInt($(`#paket-${e}`).attr("data-price"));
+    $("#sub-total").text(subtotal.toLocaleString("id-ID"));
+    console.log(paket);
+}
+
+function minPaket(e) {
+    let a = $(`.paket-form-${e}`).val();
+    let b = parseInt(a) - 1;
+    if (b <= 1) {
+        $(`.min-${e}`).attr("disabled", true);
+    }
+    $(`.paket-form-${e}`).val(b);
+    let c = parseInt($(`#paket-${e}`).attr("data-total")) - parseInt($(`#paket-${e}`).attr("data-price"));
+    $(`#paket-${e}`).attr("data-total", c);
+    $(`#paket-${e} .price-text`).text(c.toLocaleString("id-ID"));
+
+    paket = paket.map((obj) => {
+        if (obj.id === e) {
+            return { ...obj, qty: b };
+        }
+        return obj;
+    });
+    subtotal -= parseInt($(`#paket-${e}`).attr("data-price"));
+    $("#sub-total").text(subtotal.toLocaleString("id-ID"));
+    console.log(subtotal);
+    // console.log(paket);
+}
+
+  /**
+   * 
+   *  === EXTRA
+   * 
+   * */ 
+
+   /**
+   * 
+   *  === CETAK
+   * 
+   * */ 
+  function addCetak(e) {
+    let pak = e;
+    pak.qty = 1;
+    cetak.push(pak);
+
+    subtotal += parseInt(e.price.replace(".", ""));
+    $("#sub-total").text(subtotal.toLocaleString("id-ID"));
+
+    $(`.cetak-${e.id}`).addClass("opacity-0");
+
+    $("#tambah").append(` <li class="list-group-item border-0 cetak" id="cetak-${e.id}" data-price="${e.price.replace(".", "")}" data-total="${e.price.replace(".", "")}">
+            <div class="media">
+              <a href="javascript:void(0)" class="me-3 text-secondary" onClick="delCetak(${e.id})">
+                <i class="bi-x-circle-fill"></i>
+              </a>
+              <div class="media-body">
+                <h6 class="fw-bold text-primary text-capitalize">Cetak ${e.name}</h6>
+                <div class="d-flex justify-content-between">
+                  <div>
+                    Rp <span class="price-text">${e.price}</span>
+                  </div>
+                  <div class="w-50">
+
+                  <div class="input-group input-group-sm">
+  <button class="btn btn-primary min-${e.id}" disabled onClick="minCetak(${e.id})" type="button">
+    <i class="bi-dash"></i>
+  </button>
+  <input type="number" min="1" class="form-control cetak-form-${e.id}" disabled value="1">
+  <button class="btn btn-primary plus-${e.id}" onClick="pluCetak(${e.id})" type="button">
+    <i class="bi-plus"></i>
+  </button>
+</div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>`);
+
+    // console.log(cetak);
+}
+
+function delCetak(e) {
+    subtotal -= parseInt($(`#cetak-${e}`).attr("data-total"));
+    $("#sub-total").text(subtotal.toLocaleString("id-ID"));
+
+    $(`#cetak-${e}`).remove();
+    cetak = cetak.filter(function (ele) {
+        return ele.id != e;
+    });
+
+    $(`.cetak-${e}`).removeClass("opacity-0");
+
+    console.log(subtotal);
+}
+
+function pluCetak(e) {
+    $(`.min-${e}`).removeAttr("disabled");
+    let a = $(`.cetak-form-${e}`).val();
+    let b = parseInt(a) + 1;
+    $(`.cetak-form-${e}`).val(b);
+    let c = parseInt($(`#cetak-${e}`).attr("data-total")) + parseInt($(`#cetak-${e}`).attr("data-price"));
+    $(`#cetak-${e}`).attr("data-total", c);
+    $(`#cetak-${e} .price-text`).text(c.toLocaleString("id-ID"));
+    cetak = cetak.map((obj) => {
+        if (obj.id === e) {
+            return { ...obj, qty: b };
+        }
+        return obj;
+    });
+    subtotal += parseInt($(`#cetak-${e}`).attr("data-price"));
+    $("#sub-total").text(subtotal.toLocaleString("id-ID"));
+    console.log(cetak);
+}
+
+function minCetak(e) {
+    let a = $(`.cetak-form-${e}`).val();
+    let b = parseInt(a) - 1;
+    if (b <= 1) {
+        $(`.min-${e}`).attr("disabled", true);
+    }
+    $(`.cetak-form-${e}`).val(b);
+    let c = parseInt($(`#cetak-${e}`).attr("data-total")) - parseInt($(`#cetak-${e}`).attr("data-price"));
+    $(`#cetak-${e}`).attr("data-total", c);
+    $(`#cetak-${e} .price-text`).text(c.toLocaleString("id-ID"));
+
+    cetak = cetak.map((obj) => {
+        if (obj.id === e) {
+            return { ...obj, qty: b };
+        }
+        return obj;
+    });
+    subtotal -= parseInt($(`#cetak-${e}`).attr("data-price"));
+    $("#sub-total").text(subtotal.toLocaleString("id-ID"));
+    console.log(subtotal);
+    // console.log(cetak);
+}
+   
+   /**
+   * 
+   *  === FRAME
+   * 
+   * */ 
+
+  function addFrame(e) {
+    let pak = e;
+    pak.qty = 1;
+    frame.push(pak);
+
+    subtotal += parseInt(e.price.replace(".", ""));
+    $("#sub-total").text(subtotal.toLocaleString("id-ID"));
+
+    $(`.frame-${e.id}`).addClass("opacity-0");
+
+    $("#tambah").append(` <li class="list-group-item border-0 frame" id="frame-${e.id}" data-price="${e.price.replace(".", "")}" data-total="${e.price.replace(".", "")}">
+            <div class="media">
+              <a href="javascript:void(0)" class="me-3 text-secondary" onClick="delFrame(${e.id})">
+                <i class="bi-x-circle-fill"></i>
+              </a>
+              <div class="media-body">
+                <h6 class="fw-bold text-primary text-capitalize">Frame ${e.name}</h6>
+                <div class="d-flex justify-content-between">
+                  <div>
+                    Rp <span class="price-text">${e.price}</span>
+                  </div>
+                  <div class="w-50">
+
+                  <div class="input-group input-group-sm">
+  <button class="btn btn-primary min-${e.id}" disabled onClick="minFrame(${e.id})" type="button">
+    <i class="bi-dash"></i>
+  </button>
+  <input type="number" min="1" class="form-control frame-form-${e.id}" disabled value="1">
+  <button class="btn btn-primary plus-${e.id}" onClick="plusFrame(${e.id})" type="button">
+    <i class="bi-plus"></i>
+  </button>
+</div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>`);
+
+    // console.log(frame);
+}
+
+function delFrame(e) {
+    subtotal -= parseInt($(`#frame-${e}`).attr("data-total"));
+    $("#sub-total").text(subtotal.toLocaleString("id-ID"));
+
+    $(`#frame-${e}`).remove();
+    frame = frame.filter(function (ele) {
+        return ele.id != e;
+    });
+
+    $(`.frame-${e}`).removeClass("opacity-0");
+
+    console.log(subtotal);
+}
+
+function plusFrame(e) {
+    $(`.min-${e}`).removeAttr("disabled");
+    let a = $(`.frame-form-${e}`).val();
+    let b = parseInt(a) + 1;
+    $(`.frame-form-${e}`).val(b);
+    let c = parseInt($(`#frame-${e}`).attr("data-total")) + parseInt($(`#frame-${e}`).attr("data-price"));
+    $(`#frame-${e}`).attr("data-total", c);
+    $(`#frame-${e} .price-text`).text(c.toLocaleString("id-ID"));
+    frame = frame.map((obj) => {
+        if (obj.id === e) {
+            return { ...obj, qty: b };
+        }
+        return obj;
+    });
+    subtotal += parseInt($(`#frame-${e}`).attr("data-price"));
+    $("#sub-total").text(subtotal.toLocaleString("id-ID"));
+    console.log(frame);
+}
+
+function minFrame(e) {
+    let a = $(`.frame-form-${e}`).val();
+    let b = parseInt(a) - 1;
+    if (b <= 1) {
+        $(`.min-${e}`).attr("disabled", true);
+    }
+    $(`.frame-form-${e}`).val(b);
+    let c = parseInt($(`#frame-${e}`).attr("data-total")) - parseInt($(`#frame-${e}`).attr("data-price"));
+    $(`#frame-${e}`).attr("data-total", c);
+    $(`#frame-${e} .price-text`).text(c.toLocaleString("id-ID"));
+
+    frame = frame.map((obj) => {
+        if (obj.id === e) {
+            return { ...obj, qty: b };
+        }
+        return obj;
+    });
+    subtotal -= parseInt($(`#frame-${e}`).attr("data-price"));
+    $("#sub-total").text(subtotal.toLocaleString("id-ID"));
+    console.log(subtotal);
+    // console.log(frame);
+}
+
+var swiper1 = new Swiper(".swiper-1", {
+    slidesPerView: 1,
+    spaceBetween: 10,
+    pagination: {
+        el: ".pag-1",
+        clickable: true,
+    },
+    breakpoints: {
+        640: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+        },
+        768: {
+            slidesPerView: 4,
+            spaceBetween: 20,
+        },
+        1024: {
+            slidesPerView: 4,
+            spaceBetween: 20,
+        },
+    },
+});
+
+var swiper2 = new Swiper(".swiper-2", {
+    slidesPerView: 1,
+    spaceBetween: 10,
+    pagination: {
+        el: ".pag-2",
+        clickable: true,
+    },
+    breakpoints: {
+        640: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+        },
+        768: {
+            slidesPerView: 4,
+            spaceBetween: 20,
+        },
+        1024: {
+            slidesPerView: 4,
+            spaceBetween: 20,
+        },
+    },
+});
+
+var swiper3 = new Swiper(".swiper-3", {
+    slidesPerView: 1,
+    spaceBetween: 10,
+    pagination: {
+        el: ".pag-3",
+        clickable: true,
+    },
+    breakpoints: {
+        640: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+        },
+        768: {
+            slidesPerView: 4,
+            spaceBetween: 20,
+        },
+        1024: {
+            slidesPerView: 4,
+            spaceBetween: 20,
+        },
+    },
+});
+
+
+      // var items = document.getElementsByClassName('total-price');
+			// var maskOptions = {
+			// 	mask: Number,
+			// 	thousandsSeparator: '.',
+			// 	};
+			// Array.prototype.forEach.call(items, function(element) {
+			// 	var mask = IMask(element, maskOptions);
+			// });
 
 
 </script>
