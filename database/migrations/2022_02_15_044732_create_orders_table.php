@@ -16,13 +16,13 @@ class CreateOrdersTable extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id');
-            $table->integer('package_id');
             $table->integer('promo_id')->nullable();
+            $table->integer('customer_id');
             $table->string('code');
-            $table->string('name')->nullable();
-            $table->string('phone')->nullable();
-            $table->longText('alamat')->nullable();
-            $table->enum('status_pembayaran',['lunas','belum lunas']);
+            $table->json('data');
+            $table->enum('status',['proses','cancle']);
+            $table->enum('status_pembayaran',['lunas','belum']);
+            $table->string('discount')->nullable();
             $table->string('total');
             $table->timestamps();
         });

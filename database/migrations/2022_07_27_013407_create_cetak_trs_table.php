@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTransactionsTable extends Migration
+class CreateCetakTrsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,14 @@ class CreateTransactionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('transactions', function (Blueprint $table) {
+        Schema::create('cetak_trs', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id');
             $table->integer('order_id');
-            $table->enum('metode_pembayaran',['cash','debit']);
-            $table->string('total');
+            $table->integer('cetak_id');
+            $table->enum('kategori',['paket','only']);
+            $table->bigInteger('qty');
+            $table->string('total')->nullable();
             $table->timestamps();
         });
     }
@@ -30,6 +32,6 @@ class CreateTransactionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('transactions');
+        Schema::dropIfExists('cetak_trs');
     }
 }

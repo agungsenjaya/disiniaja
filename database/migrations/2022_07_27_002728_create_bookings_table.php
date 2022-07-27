@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateTransactionsTable extends Migration
+class CreateBookingsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,14 @@ class CreateTransactionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('transactions', function (Blueprint $table) {
+        Schema::create('bookings', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id');
-            $table->integer('order_id');
-            $table->enum('metode_pembayaran',['cash','debit']);
+            $table->integer('order_id')->nullable();
+            $table->enum('status',['proses','cancle']);
+            $table->json('data');
+            $table->date('tgl');
+            $table->time('time');
             $table->string('total');
             $table->timestamps();
         });
@@ -30,6 +33,6 @@ class CreateTransactionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('transactions');
+        Schema::dropIfExists('bookings');
     }
 }

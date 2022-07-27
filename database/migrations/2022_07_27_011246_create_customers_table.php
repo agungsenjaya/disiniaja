@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCanclesTable extends Migration
+class CreateCustomersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,11 @@ class CreateCanclesTable extends Migration
      */
     public function up()
     {
-        Schema::create('cancles', function (Blueprint $table) {
+        Schema::create('customers', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id');
-            $table->integer('order_id');
-            $table->longText('catatan')->nullable();
-            $table->string('price')->nullable();
+            $table->string('name');
+            $table->bigInteger('phone');
             $table->timestamps();
         });
     }
@@ -30,6 +29,6 @@ class CreateCanclesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cancles');
+        Schema::dropIfExists('customers');
     }
 }

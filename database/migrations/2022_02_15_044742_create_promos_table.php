@@ -20,7 +20,7 @@ class CreatePromosTable extends Migration
             $table->string('code');
             $table->string('img')->nullable();
             $table->longText('content')->nullable();
-            $table->enum('status',['active','deactive','default']);
+            $table->enum('status',['active','deactive']);
             $table->date('date')->nullable();
             $table->string('percent')->nullable();
             $table->string('price')->nullable();
